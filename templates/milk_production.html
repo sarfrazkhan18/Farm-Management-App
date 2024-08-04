@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block title %}Milk Production{% endblock %}
+
+{% block content %}
+<h1>Milk Production Management</h1>
+<form method="POST">
+    <input type="number" name="cow_id" placeholder="Cow ID" required>
+    <input type="date" name="date" required>
+    <input type="number" name="quantity" step="0.1" placeholder="Quantity (liters)" required>
+    <button type="submit">Add Production Record</button>
+</form>
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Cow ID</th>
+            <th>Date</th>
+            <th>Quantity (liters)</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for production in productions %}
+        <tr>
+            <td>{{ production[0] }}</td>
+            <td>{{ production[1] }}</td>
+            <td>{{ production[2] }}</td>
+            <td>{{ production[3] }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
