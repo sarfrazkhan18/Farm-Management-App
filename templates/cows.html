@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% block title %}Cows{% endblock %}
+
+{% block content %}
+<h1>Cows Management</h1>
+<form method="POST">
+    <input type="text" name="name" placeholder="Cow Name" required>
+    <input type="text" name="breed" placeholder="Breed" required>
+    <input type="date" name="birth_date" required>
+    <input type="date" name="last_milked" required>
+    <button type="submit">Add Cow</button>
+</form>
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Breed</th>
+            <th>Birth Date</th>
+            <th>Last Milked</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for cow in cows %}
+        <tr>
+            <td>{{ cow[0] }}</td>
+            <td>{{ cow[1] }}</td>
+            <td>{{ cow[2] }}</td>
+            <td>{{ cow[3] }}</td>
+            <td>{{ cow[4] }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
