@@ -1,1 +1,33 @@
+{% extends "layout.html" %}
 
+{% block title %}Crops{% endblock %}
+
+{% block content %}
+<h1>Crops Management</h1>
+<form method="POST">
+    <input type="text" name="name" placeholder="Crop Name" required>
+    <input type="number" name="quantity" placeholder="Quantity" required>
+    <input type="date" name="last_watered" required>
+    <button type="submit">Add Crop</button>
+</form>
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Quantity</th>
+            <th>Last Watered</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for crop in crops %}
+        <tr>
+            <td>{{ crop[0] }}</td>
+            <td>{{ crop[1] }}</td>
+            <td>{{ crop[2] }}</td>
+            <td>{{ crop[3] }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
